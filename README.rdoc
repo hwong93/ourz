@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+OURZ is a webapp that tries to reduce the noise of social media platform by consolidating it into a quick feed.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+==User Stories
+1. A User should be able to follow other users
+2. A User should be able to take posts from other social media sites
+3. A User should be able to comment and like a post
+4. A User post should only last 24hrs
+5. A User should be able to find more posts using a Map
