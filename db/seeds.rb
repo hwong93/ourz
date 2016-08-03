@@ -38,6 +38,7 @@ Post.create!({
   title: 'test',
   content: 'text',
   author: User.find_by(first_name: 'Mark').id,
+  category_id: Category.find_by(name: 'Music').id,
   end_time: '12/1/2016'
 })
 
