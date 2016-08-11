@@ -9,7 +9,7 @@
 User.destroy_all
 Post.destroy_all
 Category.destroy_all
-Following.destroy_all
+
 
 
 User.create!({
@@ -18,7 +18,8 @@ User.create!({
   bio: 'bla',
   email: 'mark@gmail.com',
   password: 'test',
-  password_confirmation: 'test'
+  password_confirmation: 'test',
+  profile_pic: 'http://houtaiwong.com/img/profile.jpg'
   })
 
 User.create!({
@@ -27,7 +28,8 @@ User.create!({
   bio: 'bla',
   email: 'test@gmail.com',
   password: 'test',
-  password_confirmation: 'test'
+  password_confirmation: 'test',
+  profile_pic: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
 })
 
 Category.create!({
@@ -39,11 +41,6 @@ Post.create!({
   content: 'text',
   author: User.find_by(first_name: 'Mark').id,
   category_id: Category.find_by(name: 'Music').id,
-  end_time: '12/1/2016'
-})
-
-Following.create!({
-  following_user_id: User.find_by(first_name: 'Mark').id,
-  follower_user_id: User.find_by(first_name: 'Hou').id,
-  follow_back: false
+  end_time: '12/1/2016',
+  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
 })

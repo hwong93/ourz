@@ -1,52 +1,17 @@
 Rails.application.routes.draw do
-  get 'category/index'
 
-  get 'category/new'
+  get 'welcome/index'
 
-  get 'category/create'
-
-  get 'category/show'
-
-  get 'category/update'
-
-  get 'category/edit'
-
-  get 'category/destroy'
-
-  get 'following/index'
-
-  get 'following/new'
-
-  get 'following/create'
-
-  get 'following/show'
-
-  get 'following/update'
-
-  get 'following/edit'
-
-  get 'following/destroy'
-
-  get 'post/index'
-
-  get 'post/show'
-
-  get 'post/new'
-
-  get 'post/edit'
-
-  get 'post/update'
-
-  get 'post/create'
-
-  get 'post/destroy'
-
-  root :to => 'users#index'
+  root :to => 'welcome#index'
   resources :user_sessions
   resources :users
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  resources :posts
+  resources :categories
+  resources :followings
 
 
   # The priority is based upon order of creation: first created -> highest priority.

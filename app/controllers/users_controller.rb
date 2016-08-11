@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: [:new, :create]
 
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = current_user.followings.all
   end
 
   # GET /users/1

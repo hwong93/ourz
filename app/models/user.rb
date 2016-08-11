@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :posts, foreign_key: :author
-  has_many :following, class_name: 'Following', foreign_key: :following_user_id
-  has_many :followers, class_name: 'Following', foreign_key: :follower_user_id
+
+  mount_uploader :profile_pic, ProfileUploader
 
 end
