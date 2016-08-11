@@ -46,4 +46,4 @@ Following.create!({
   following_user_id: User.find_by(first_name: 'Mark').id,
   follower_user_id: User.find_by(first_name: 'Hou').id,
   follow_back: false
-  })
+})
