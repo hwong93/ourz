@@ -44,3 +44,8 @@ Post.create!({
   end_time: '12/1/2016',
   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
 })
+
+Relationship.create!({
+  follower_id: User.find_by(first_name: 'Hou').id,
+  followed_id: User.find_by(first_name: 'Mark').id
+  })
