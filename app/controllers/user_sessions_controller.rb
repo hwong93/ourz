@@ -16,6 +16,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(welcome_index_url, notice: 'Logged out!')
+    redirect_to(root_url, notice: 'Logged out!')
   end
 end
