@@ -20,4 +20,22 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_pic, ProfileUploader
 
+
+  def following_posts(user)
+    following_posts = []
+    following_users = user.following
+
+    following_users.each do |user|
+      users_post = user.posts
+
+      users_post.each do |post|
+        following_posts << post
+      end
+    end
+    return following_posts.sort_by(&:created_at)
+  end
+
+
+
+
 end

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = current_user.followings.all
+    @following_post = current_user.following_posts(current_user)
   end
 
   # GET /users/1

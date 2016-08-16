@@ -9,6 +9,7 @@
 User.destroy_all
 Post.destroy_all
 Category.destroy_all
+Relationship.destroy_all
 
 
 
@@ -39,6 +40,15 @@ Category.create!({
 Post.create!({
   title: 'test',
   content: 'text',
+  author: User.find_by(first_name: 'Mark').id,
+  category_id: Category.find_by(name: 'Music').id,
+  end_time: '12/1/2016',
+  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+})
+
+Post.create!({
+  title: 'test2',
+  content: 'text2',
   author: User.find_by(first_name: 'Mark').id,
   category_id: Category.find_by(name: 'Music').id,
   end_time: '12/1/2016',
