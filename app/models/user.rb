@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :comment_posts, through: :comments, source: 'post'
 
+  has_many :likes
+  has_many :like_posts, through: :likes, source: 'post'
+
   mount_uploader :profile_pic, ProfileUploader
 
 

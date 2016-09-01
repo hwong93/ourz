@@ -11,6 +11,7 @@ Post.destroy_all
 Category.destroy_all
 Relationship.destroy_all
 Comment.destroy_all
+Like.destroy_all
 
 
 
@@ -75,6 +76,11 @@ Relationship.create!({
 
 Comment.create!({
   comment: 'blah blah blah blah',
+  post_id: Post.find_by(title: 'test').id,
+  user_id: User.find_by(first_name: 'Hou').id
+  })
+
+Like.create!({
   post_id: Post.find_by(title: 'test').id,
   user_id: User.find_by(first_name: 'Hou').id
   })
