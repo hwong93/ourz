@@ -10,6 +10,7 @@ User.destroy_all
 Post.destroy_all
 Category.destroy_all
 Relationship.destroy_all
+Comment.destroy_all
 
 
 
@@ -37,6 +38,18 @@ Category.create!({
   name: 'Music'
 })
 
+Category.create!({
+  name: 'Blog'
+})
+
+Category.create!({
+  name: 'Video'
+})
+
+Category.create!({
+  name: 'Picture'
+  })
+
 Post.create!({
   title: 'test',
   content: 'text',
@@ -58,4 +71,10 @@ Post.create!({
 Relationship.create!({
   follower_id: User.find_by(first_name: 'Hou').id,
   followed_id: User.find_by(first_name: 'Mark').id
+  })
+
+Comment.create!({
+  comment: 'blah blah blah blah',
+  post_id: Post.find_by(title: 'test').id,
+  user_id: User.find_by(first_name: 'Hou').id
   })
