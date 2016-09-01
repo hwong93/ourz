@@ -16,6 +16,21 @@
           <%= ((Time.now - post.created_at) / 3600).round  %> hours ago
         <% end %>
       </div>
+      <div>
+        <% current_user.like_posts.each do |like_post| %>
+          <% if like_post.id == post.id %>
+            <div class="already_liked">
+              Likes: <%= post.likes.count %>
+            </div>
+          <% else %>
+            <div class="not_liked">
+              Likes: <%= post.likes.count %>
+            </div>
+          <% end %>
+        <% end %>
+
+
+      </div>
     </div>
   </div>
 <% end %>
