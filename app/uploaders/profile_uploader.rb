@@ -10,7 +10,17 @@ class ProfileUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  process resize_to_fill: [200, 200]
+  version :print do
+    version :thumb    { process :resize_to_fit => [32, 32] }
+    version :preview  { process :resize_to_fit => [256, 256] }
+    version :full     { process :resize_to_fit => [2048, 2048] }
+  end
+
+  version :web do
+    version :thumb    { process :resize_to_fit => [32, 32] }
+    version :preview  { process :resize_to_fit => [128, 128] }
+    version :full     { process :resize_to_fit => [1024, 768] }
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
