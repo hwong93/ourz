@@ -1,5 +1,10 @@
 <h1>Feed</h1>
 
+  <div>
+
+    <%= image_tag current_user.profile_pic_url(:thumb) if current_user.profile_pic? %>
+  </div>
+
 <% @following_post.each do |post| %>
   <div class="post">
     <h3><%= post.title %></h3>
