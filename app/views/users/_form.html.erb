@@ -27,7 +27,10 @@
   </div>
 
   <div class="field">
+    <%= f.label :Profile_Picture %><br />
+    <%= image_tag @user.profile_pic_url(:thumb) if @user.profile_pic?%> <br />
     <%= f.file_field :profile_pic %>
+    <%= f.hidden_field :profile_pic_cache %>
   </div>
 
   <div class="field">
