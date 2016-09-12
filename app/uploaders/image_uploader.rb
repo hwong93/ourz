@@ -10,6 +10,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  version :regular do
+    process resize_to_fit: [500,500]
+  end
+
+  version :preview, from_version: :regular do
+    process resize_to_fit: [32,32]
+  end
+
   # process resize_to_fill: [500, 500]
 
   # version :print do

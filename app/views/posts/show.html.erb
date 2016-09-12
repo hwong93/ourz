@@ -1,2 +1,9 @@
-<h1>Post#show</h1>
-<p>Find me in app/views/post/show.html.erb</p>
+<h1><%= @post.title %></h1>
+
+<div>
+  <%= @post.content %>
+</div>
+
+<div>
+  <%= image_tag @post.image_url(:regular) if @post.image? %>
+</div>
