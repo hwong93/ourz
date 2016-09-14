@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'like/new'
+
+  get 'like/create'
+
+  get 'like/destroy'
+
   root :to => 'welcome#index'
   resources :user_sessions
   resources :users
