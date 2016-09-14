@@ -26,11 +26,11 @@
 
           <% if like_post.id == post.id %>
             <div>
-              <button class="like_btn already_liked" data-postid="<%= post.id %>">Likes : <%= post.likes.count %></button>
+              <button class="like_btn already_liked" data-postid="<%= post.id %>" data-userid="<%= current_user.id %>">Likes : <%= post.likes.count %></button>
             </div>
           <% else %>
             <div>
-              <button class="like_btn not_liked" data-postid="<%= post.id %>">Likes : <%= post.likes.count %></button>
+              <button class="like_btn not_liked" data-postid="<%= post.id %>" data-userid="<%= current_user.id %>">Likes : <%= post.likes.count %></button>
             </div>
           <% end %>
         <% end %>
