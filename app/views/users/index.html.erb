@@ -23,13 +23,14 @@
       </div>
       <div>
         <% current_user.like_posts.each do |like_post| %>
+
           <% if like_post.id == post.id %>
-            <div class="already_liked">
-              Likes: <%= post.likes.count %>
+            <div>
+              <button class="like_btn already_liked" data-postid="<%= post.id %>">Likes : <%= post.likes.count %></button>
             </div>
           <% else %>
-            <div class="not_liked">
-              Likes: <%= post.likes.count %>
+            <div>
+              <button class="like_btn not_liked" data-postid="<%= post.id %>">Likes : <%= post.likes.count %></button>
             </div>
           <% end %>
         <% end %>
