@@ -5,7 +5,6 @@ $(document).on('ready page:load', function(){
 
     var userID = $(this).data('userid')
     // console.log($(this).hasClass('already_liked'))
-    console.log(postID)
 
     if ($(this).hasClass('not_liked')){
       // $(this).removeClass('already_liked').addClass('not_liked');
@@ -24,7 +23,16 @@ $(document).on('ready page:load', function(){
           console.log('it worked!')
         }
 
-      })
+      });
+    }
+
+    if($(this).hasClass('already_liked')){
+      var likeId = $(this).data('likeid');
+      $.ajax({
+        url: '/likes/' + likeId,
+        method: 'DELETE',
+        dataType: 'script'
+      });
     }
   })
 

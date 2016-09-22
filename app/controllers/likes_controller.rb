@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
 
     if @like.save
-      # render nothing: true
+      render nothing: true
     else
       # render :new
     end
@@ -14,6 +14,13 @@ class LikesController < ApplicationController
 
 
   def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   private
