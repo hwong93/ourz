@@ -10,6 +10,9 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  geocoded_by :full_street_address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
   # before_create :only_one
   #
   # private

@@ -1,5 +1,9 @@
 $(document).on('ready page:load', function(){
 
+  $('button[name="get_location"]').on('click', function(ev){
+    findMe(ev);
+  })
+
   $('.like_btn').on('click', function(){
     var postID = $(this).data('postid')
 
@@ -36,6 +40,26 @@ $(document).on('ready page:load', function(){
     }
   })
 
-
-
 });
+
+var findMe = function(){
+  if ('geolocation' in navigator){
+    navigator.geolocation.getCurrentPosition(function(position){
+      success(position);
+    }, failure);
+
+  } else {
+    alert ("Geolocation not supported");
+  }
+
+  function success(position){
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+
+  }
+
+
+  function failure(err){
+    console.log('ERROR(' + err.code + '): ' + err.message);
+  }
+}
