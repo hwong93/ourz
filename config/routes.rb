@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   root :to => 'welcome#index'
   resources :user_sessions
   resources :users
-  resources :likes
-  
+  resources :likes, only: %i(new, destroy, index)
+  resources :comments
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :posts
-  resources :categories
+  resources :categories, only: %i(index)
   resources :followings
 
 
