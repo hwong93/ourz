@@ -8,6 +8,7 @@
 <% @following_post.each do |post| %>
   <div class="post">
     <h3><%= post.title %></h3>
+    <%= link_to 'Post', post_path(post.id) %>
     <%= image_tag User.find(post.author).profile_pic %>
     <h5><%= User.find(post.author).first_name %></h5>
     <div class="content">

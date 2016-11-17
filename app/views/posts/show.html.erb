@@ -7,3 +7,19 @@
 <div>
   <%= image_tag @post.image_url(:regular) if @post.image? %>
 </div>
+
+<div class="comment">
+  <h3>Comments</h3>
+  <ul class='comment_list'>
+    <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.comment %>
+    </li>
+    <% end %>
+  </ul>
+
+  <form name="comments">
+    <input type="text" name="comment_text" data-postid="<%= @post.id %>" data-userid="<%= current_user.id %>" placeholder="comment">
+    <input type="submit" name="comment_submit" value="submit" >
+  </form>
+</div>
