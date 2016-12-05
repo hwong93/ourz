@@ -21,6 +21,7 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to @post
       else
+        @categories = Category.all
         render :new
       end
     else
