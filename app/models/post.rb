@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   has_many :like_users, through: :likes, source: 'user'
 
   validates :title, presence: true
-  validate :one_post
+  # validate :one_post
 
   mount_uploader :image, ImageUploader
 

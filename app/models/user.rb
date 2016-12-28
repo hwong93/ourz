@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :like_posts, through: :likes, source: 'post'
 
   geocoded_by :full_street_address
-  after_validation :geocode, if: :address_changed?
+  # after_validation :geocode, if: :address_changed?
 
 
   mount_uploader :profile_pic, ProfileUploader

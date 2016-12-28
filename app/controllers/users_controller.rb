@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:show, :edit, :update]
 
 
   def index
+
     @following_post = current_user.following_posts(current_user)
 
     @like_post_array = []
@@ -74,4 +75,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :bio, :email, :password, :password_confirmation, :profile_pic)
     end
+
+    # def category_param
+    #   params.require(:user)
+    # end
+    #
 end

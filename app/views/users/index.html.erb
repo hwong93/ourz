@@ -1,8 +1,7 @@
 <h1>Feed</h1>
 
-  <div>
-
-    <%= image_tag current_user.profile_pic_url(:thumb) if current_user.profile_pic? %>
+  <div class="filter">
+    <a href="#" data-category="<%= Category.find_by(name: 'Music').id %>">Music</a>
   </div>
 
 <% @following_post.each do |post| %>

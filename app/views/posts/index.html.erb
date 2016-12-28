@@ -1,1 +1,30 @@
 <h1>Map Should Be Here</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h3><%= post.title %></h3>
+    <%= link_to 'Post', post_path(post.id) %>
+    <%= image_tag User.find(post.author).profile_pic %>
+    <h5><%= User.find(post.author).first_name %></h5>
+    <div class="content">
+      <%= image_tag post.image %>
+      <%= post.content %>
+      <div>
+        Created:
+        <% if ((Time.now - post.created_at) / 3600).round == 0 %>
+          Just now!
+        <% else %>
+          <%= ((Time.now - post.created_at) / 3600).round  %> hours ago
+        <% end %>
+      </div>
+      <div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+<% end %>

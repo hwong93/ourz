@@ -52,7 +52,7 @@ Category.create!({
   })
 
 Post.create!({
-  title: 'test',
+  title: 'Music',
   content: 'text',
   author: User.find_by(first_name: 'Mark').id,
   category_id: Category.find_by(name: 'Music').id,
@@ -61,13 +61,32 @@ Post.create!({
 })
 
 Post.create!({
-  title: 'test2',
+  title: 'Video',
   content: 'text2',
   author: User.find_by(first_name: 'Mark').id,
-  category_id: Category.find_by(name: 'Music').id,
+  category_id: Category.find_by(name: 'Video').id,
   end_time: '12/1/2016',
   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
 })
+
+Post.create!({
+  title: 'Blog',
+  content: 'text2',
+  author: User.find_by(first_name: 'Mark').id,
+  category_id: Category.find_by(name: 'Blog').id,
+  end_time: '12/1/2016',
+  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+})
+
+Post.create!({
+  title: 'Picture',
+  content: 'text2',
+  author: User.find_by(first_name: 'Mark').id,
+  category_id: Category.find_by(name: 'Picture').id,
+  end_time: '12/1/2016',
+  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+})
+
 
 Relationship.create!({
   follower_id: User.find_by(first_name: 'Hou').id,
