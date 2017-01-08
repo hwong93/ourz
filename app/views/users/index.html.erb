@@ -10,6 +10,7 @@
     <%= link_to 'Post', post_path(post.id) %>
     <%= image_tag User.find(post.author).profile_pic %>
     <h5><%= User.find(post.author).first_name %></h5>
+    <%= link_to 'User', user_path(User.find(post.author)) %>
     <div class="content">
       <%= image_tag post.image %>
       <%= post.content %>

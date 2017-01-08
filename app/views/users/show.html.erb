@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if @user.id == current_user.id %>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -19,3 +20,13 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<% else %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<button type="button" name="follow" data-current="<%= current_user.id %>" data-user="<%= @user.id %>">Follow</button>
+
+<% end %>
