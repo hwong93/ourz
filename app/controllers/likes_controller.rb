@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+
   def new
   end
 
@@ -7,6 +8,7 @@ class LikesController < ApplicationController
 
     if @like.save
       render nothing: true
+      @like.create_activity :create, owner: current_user, recipient: @comment.post.user
     else
       # render :new
     end
@@ -16,6 +18,7 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
+    @like.create_activity :destroy, owner: current_user, recipient: @comment.post.user
 
     respond_to do |format|
       format.js

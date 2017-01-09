@@ -34,11 +34,10 @@ $(document).on('ready page:load', function(){
       var likeId = $(this).data('likeid');
       $.ajax({
         url: '/likes/' + likeId,
-        method: 'DELETE',
-        dataType: 'script'
+        method: 'DELETE'
       });
     }
-  })
+  });
 
   $('button[name="follow"]').on('click', function(){
     console.log('follow')
@@ -63,7 +62,7 @@ $(document).on('ready page:load', function(){
         alert('You are already following this user');
       }
     })
-  })
+  });
 
 });
 

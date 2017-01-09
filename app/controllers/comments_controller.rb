@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :require_login
   before_action :load_post
 
     def show
@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 
       respond_to do |format|
         if @comment.save
+          @comment.create_activity :create, owner: current_user, recipient: @comment.post.user
           format.html { redirect_to @post, notice: 'Post was successfully created.' }
           format.js   {}
           format.json { render json: @post, status: :created, location: @post }
@@ -25,7 +26,9 @@ class CommentsController < ApplicationController
 
     def destroy
       @comment = Review.find(params[:id])
+      @comment.create_activity :destroy, owner: current_user, recipient: @comment.post.user
       @comment.destroy
+
     end
 
     private
