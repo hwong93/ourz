@@ -60,32 +60,32 @@ Post.create!({
   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
 })
 
-Post.create!({
-  title: 'Video',
-  content: 'text2',
-  author: User.find_by(first_name: 'Mark').id,
-  category_id: Category.find_by(name: 'Video').id,
-  end_time: '12/1/2016',
-  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
-})
-
-Post.create!({
-  title: 'Blog',
-  content: 'text2',
-  author: User.find_by(first_name: 'Mark').id,
-  category_id: Category.find_by(name: 'Blog').id,
-  end_time: '12/1/2016',
-  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
-})
-
-Post.create!({
-  title: 'Picture',
-  content: 'text2',
-  author: User.find_by(first_name: 'Mark').id,
-  category_id: Category.find_by(name: 'Picture').id,
-  end_time: '12/1/2016',
-  image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
-})
+# Post.create!({
+#   title: 'Video',
+#   content: 'text2',
+#   author: User.find_by(first_name: 'Mark').id,
+#   category_id: Category.find_by(name: 'Video').id,
+#   end_time: '12/1/2016',
+#   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+# })
+#
+# Post.create!({
+#   title: 'Blog',
+#   content: 'text2',
+#   author: User.find_by(first_name: 'Mark').id,
+#   category_id: Category.find_by(name: 'Blog').id,
+#   end_time: '12/1/2016',
+#   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+# })
+#
+# Post.create!({
+#   title: 'Picture',
+#   content: 'text2',
+#   author: User.find_by(first_name: 'Mark').id,
+#   category_id: Category.find_by(name: 'Picture').id,
+#   end_time: '12/1/2016',
+#   image: 'https://pmcdeadline2.files.wordpress.com/2016/02/alicia-vikander-the-danish-girl.jpg'
+# })
 
 
 Relationship.create!({
@@ -95,11 +95,11 @@ Relationship.create!({
 
 Comment.create!({
   comment: 'blah blah blah blah',
-  post_id: Post.find_by(title: 'test').id,
+  post_id: Post.find_by(title: 'Music').id,
   user_id: User.find_by(first_name: 'Hou').id
   })
 
-Like.create!({
-  post_id: Post.find_by(title: 'test').id,
-  user_id: User.find_by(first_name: 'Hou').id
+Like.create({
+  user_id: User.find_by(first_name: 'Hou').id,
+  post_id: Post.find_by(title: 'Music').id,
   })
