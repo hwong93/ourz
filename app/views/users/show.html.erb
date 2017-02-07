@@ -1,32 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <% if @user.id == current_user.id %>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Crypted password:</strong>
-  <%= @user.crypted_password %>
-</p>
-
-<p>
-  <strong>Salt:</strong>
-  <%= @user.salt %>
-</p>
 
 <button type="button" name="get_location" >Click Me!</button>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
-
-<% else %>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<button type="button" name="follow" data-current="<%= current_user.id %>" data-user="<%= @user.id %>">Follow</button>
-
 <% end %>
+<div class="profile">
+  <div class="cover-photo">
+    <div class="followers">
+      <%= @user.followers.count %>
+    </div>
+    <div class="following">
+      <%= @user.following.count %>
+    </div>
+    <div class="profile_pic">
+
+    </div>
+  </div>
+  <div class="about-me">
+    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <button type="button" name="follow" data-current="<%= current_user.id %>" data-user="<%= @user.id %>">Follow</button>
+  </div>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="img">
+          <%= link_to image_tag(post.image, class: Category.find(post.category_id).name ), post_path(post.id) %>        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

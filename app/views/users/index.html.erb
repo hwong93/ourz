@@ -8,7 +8,7 @@
   <div class="post">
     <div class="top-bar">
       <div class="leftside">
-
+        <%= Category.find(post.category_id).name %>
       </div>
       <div class="middle">
 
@@ -27,13 +27,12 @@
         </div>
       </div>
       <div class="rightside">
-
+        <!-- menu -->
       </div>
     </div>
     <div class="media ">
       <% if post.image == "" %>
-        <img src="http://thecatapi.com/?id=8c6
-" alt="">
+        <img src="http://thecatapi.com/?id=8c6" alt="">
       <%else%>
         <%= link_to image_tag(post.image, class: Category.find(post.category_id).name ), post_path(post.id) %>
       <%end%>
