@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+a {
+  text-decoration:none;
+
+}
+a:hover {
+  background-color: white !important;
+
+}

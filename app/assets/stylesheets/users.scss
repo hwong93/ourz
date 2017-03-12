@@ -1,3 +1,123 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#feed {
+  width: 100%;
+
+  h3 {
+    font-size: 2rem;
+    color: grey;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight:bold;
+    color: black;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  .post {
+    width: 100%;
+    border-bottom: 1px solid grey;
+    padding: 40px 0;
+    .top-bar {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      padding: 10px;
+      .bio {
+        display: table;
+        width: 100%;
+        .leftside {
+          width: 25%;
+          display: table-cell;
+          vertical-align: middle;
+
+        }
+        .middle {
+          width: 50%;
+          display:table-cell;
+          text-align: center;
+          vertical-align: middle;
+          position: relative;
+          margin-right: 20px;
+          .thumb-prof-pic {
+            display: inline-block;
+            img {
+              border-radius: 100%;
+              width: 80px;
+              height: 80px;
+            }
+          }
+          .name {
+            display: inline-block;
+            font-size: 2rem;
+            color: grey;
+            position: relative;
+            top: 50%;
+            transform: translateY(-33%);
+          }
+        }
+        .rightside {
+          width: 25%;
+          display: table-cell;
+          vertical-align: middle;
+          text-align:center;
+          img {
+            width: 80px;
+          }
+        }
+      }
+    }
+    .media {
+      width: 90%;
+      margin: 0 auto;
+      padding: 50px 0;
+      .image {
+        border-radius: 100%;
+
+        &.Music {
+          img {
+            border: 10px solid blue;
+          }
+        }
+        &.Blog {
+          img {
+            border: 10px solid grey;
+          }
+        }
+        &.Video {
+          img {
+            border: 10px solid red;
+          }
+        }
+        &.Picture {
+          img {
+            border: 10px solid purple;
+          }
+        }
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+    }
+    .action {
+      width: 100%;
+      text-align: center;
+      label {
+        font-size: 1.5rem;
+      }
+      img {
+        width: 80px;
+      }
+    }
+
+
+  }
+}

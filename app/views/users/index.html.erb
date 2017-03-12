@@ -1,52 +1,57 @@
-<h1>Feed</h1>
+<section id="feed">
+    <!-- <div class="filter">
+      <a href="#" data-category="<%= Category.find_by(name: 'Music').id %>">Music</a>
+    </div> -->
 
-  <!-- <div class="filter">
-    <a href="#" data-category="<%= Category.find_by(name: 'Music').id %>">Music</a>
-  </div> -->
+  <% @following_post.each do |post| %>
+  <% color = Category.find(post.category_id).name %>
+    <div class="post">
+      <div class="top-bar">
+        <div class="bio">
 
-<% @following_post.each do |post| %>
-  <div class="post">
-    <div class="top-bar">
-      <div class="leftside">
-        <%= Category.find(post.category_id).name %>
-      </div>
-      <div class="middle">
-
-        <div class="Name">
-          <div class="thumb-prof-pic">
-
-          </div>
-          <div class="name">
-            <h2><%= User.find(post.author).name %></h2>
-            <% if ((Time.now - post.created_at) / 3600).round == 0 %>
-            Just now!
-            <% else %>
-            <%= ((Time.now - post.created_at) / 3600).round  %> hours ago
-            <% end %>
-          </div>
+        <div class="leftside">
+          <h3><%= Category.find(post.category_id).name %></h3>
+        </div>
+        <div class="middle">
+            <div class="thumb-prof-pic">
+              <img src="http://thecatapi.com/api/images/get?format=src">
+            </div>
+            <div class="name">
+              <h2><%= User.find(post.author).first_name %></h2>
+              <% if ((Time.now - post.created_at) / 3600).round == 0 %>
+              Just now!
+              <% else %>
+              <%= ((Time.now - post.created_at) / 3600).round  %> hours ago
+              <% end %>
+            </div>
+        </div>
+        <div class="rightside">
+          <img src="<%= asset_path( 'dots.png' ) %>" />
         </div>
       </div>
-      <div class="rightside">
-        <!-- menu -->
+
+      </div>
+      <div class="media ">
+        <div class="image <%= color %> ">
+          <% pos = post.image %>
+          <% if post.image.url.blank? %>
+          <img src="http://thecatapi.com/api/images/get?format=src">
+          <%else%>
+            <%= link_to image_tag(post.image, class: Category.find(post.category_id).name ), post_path(post.id) %>
+          <%end%>
+        </div>
+      </div>
+      <div class="action">
+            <label >
+               <img src="<%= asset_path( 'like.png' ) %>" class="like_btn" data-postid="<%= post.id %>" data-userid="<%= current_user.id %>"/>
+               <%= post.likes.count %>
+
+           </label>
+
       </div>
     </div>
-    <div class="media ">
-      <% if post.image == "" %>
-        <img src="http://thecatapi.com/?id=8c6" alt="">
-      <%else%>
-        <%= link_to image_tag(post.image, class: Category.find(post.category_id).name ), post_path(post.id) %>
-      <%end%>
-    </div>
-    <div class="action">
-      <% if @like_post_array.include?(post.id) %>
-        <div>
-         <button class="like_btn already_liked" data-postid="<%= post.id %>" data-userid="<%= current_user.id %>" data-likeid="<%= Like.find_by(post_id: post.id).id%>">Likes : <%= post.likes.count %></button>
-        </div>
-      <% else %>
-        <div>
-         <button class="like_btn not_liked" data-postid="<%= post.id %>" data-userid="<%= current_user.id %>">Likes : <%= post.likes.count %></button>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+
+
+
+</section>

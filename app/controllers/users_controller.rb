@@ -8,12 +8,7 @@ class UsersController < ApplicationController
 
     @following_post = current_user.following_posts(current_user)
 
-    @like_post_array = []
-
-    current_user.likes.each do |like|
-      @like_post_array << like.post_id
-    end
-
+    @like_post_array = [];
   end
 
   def show

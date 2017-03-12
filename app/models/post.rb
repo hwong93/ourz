@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :comment_users, through: :comments, source: 'user'
 
-  has_many :likes, foreign_key: :author
+  has_many :likes
   has_many :like_users, through: :likes, source: 'user'
 
   validates :title, presence: true
